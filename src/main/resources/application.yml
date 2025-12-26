@@ -1,0 +1,28 @@
+micronaut:
+  application:
+    name: waste-management
+  server:
+    port: 8080
+  environments:
+    default: dev
+
+redis:
+  uri: redis://localhost:localhost:${REDIS_PORT:6379}
+
+rabbitmq:
+  uri: amqp://${RABBITMQ_USER}:${RABBITMQ_PASS}@${RABBITMQ_HOST:localhost}:${RABBITMQ_PORT:5672}
+
+minio:
+  url: ${MINIO_URL:http://localhost:9000}
+  access-key: ${MINIO_ROOT_USER}
+  secret-key: ${MINIO_ROOT_PASSWORD}
+  bucket: ${MINIO_BUCKET:waste-images}
+
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+  info:
+    enabled: true
+    sensitive: false
